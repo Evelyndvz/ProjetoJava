@@ -1,0 +1,23 @@
+
+name: Meu primeiro robo
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar meu projeto
+        uses: actions/checkout@v4
+
+      - name: Preparar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Conferir meu codigo
+        run: javac src/Main.java
